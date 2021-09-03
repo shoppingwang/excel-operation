@@ -4,6 +4,8 @@ from typing import Generator
 import pandas as pd
 from pandas import DataFrame, ExcelWriter
 
+import analysis
+
 FOLDER_ROOT_LOCATION = "/Users/xiwang/Downloads/PHASE ONE CODED"
 
 SHEET_NAME = "Master"
@@ -53,3 +55,7 @@ if __name__ == '__main__':
     output_path = os.path.abspath(os.path.join(FOLDER_ROOT_LOCATION, "..", MERGED_FILE_NAME))
     print(f"\nOutput {records_count} records to file {output_path}")
     write_sheet(all_data, output_path, SHEET_NAME)
+
+    # Create analysis sheet
+    print("Write analysis result...")
+    analysis.create_analysis_sheet(output_path, records_count)
