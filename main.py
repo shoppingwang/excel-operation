@@ -49,6 +49,7 @@ if __name__ == '__main__':
         all_data = all_data.append(sheet_data)
 
     # Output to a file
+    records_count = len(all_data.index)
     output_path = os.path.abspath(os.path.join(FOLDER_ROOT_LOCATION, "..", MERGED_FILE_NAME))
-    print(f"Output file to {output_path}")
+    print(f"Output {records_count} records to file {output_path}")
     write_sheet(all_data, output_path, SHEET_NAME)
